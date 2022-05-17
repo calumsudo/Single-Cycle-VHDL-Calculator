@@ -14,6 +14,7 @@ entity calculator is
     );
 end calculator;
 
+architecture behav of calculator is
 --add other components to be used
 --ALU
 --add/sub
@@ -26,8 +27,10 @@ component display is
         clock : in std_logic;
         output : out std_logic_vector(7 downto 0;)
     );
-end display;
+end component display;
 --carry ripple adder
 --register file
 --two comp
 --begin architecture
+
+end behav;

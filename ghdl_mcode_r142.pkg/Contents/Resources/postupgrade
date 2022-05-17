@@ -1,0 +1,33 @@
+#!/bin/sh -v
+# -v flag to sh would echo contents of script to log
+
+#  For the links:
+
+umask 022
+
+# Post Install Script for ghdl_mcode
+
+# Complete Installation
+
+cd /usr/local
+
+# tar archive used to keep the VHDL library time stamps intact:
+# -v arg to tar will echo list of installed files to log file
+
+/usr/bin/tar -xovjf ghdl.tar.bz2
+
+# Install Links
+
+# link executable to /usr/local/bin/ghdl:
+
+/bin/ln -s /usr/local/ghdl/translate/ghdldrv/ghdl_mcode /usr/local/bin/ghdl
+
+# create/usr/local/man/man1/ghdl.1 link:
+
+/bin/ln -s /usr/local/ghdl/doc/ghdl.1 /usr/local/man/man1/ghdl.1
+
+# Final Cleanup
+
+/bin/rm -f /usr/local/ghdl.tar.bz2
+
+# installation complete

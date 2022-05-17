@@ -1,0 +1,14 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/calumsiemer/Documents/Code/VHDL'
+make: Leaving directory `/Users/calumsiemer/Documents/Code/VHDL'
+ 
+make: *** No rule to make target `calculator.o', needed by `calculator'.
+make: *** No rule to make target `ALU.o', needed by `calculator'.
+make: *** No rule to make target `carry.o', needed by `calculator'.
+make: *** No rule to make target `demux.o', needed by `calculator'.
+make: *** No rule to make target `full_adder.o', needed by `calculator'.
+make: *** No rule to make target `mux.o', needed by `calculator'.
+make: *** No rule to make target `reg_file.o', needed by `calculator'.
+make: *** No rule to make target `reg.o', needed by `calculator'.
+make: *** No rule to make target `dsiplay.o', needed by `calculator'.
+

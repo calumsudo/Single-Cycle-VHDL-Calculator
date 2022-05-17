@@ -1,0 +1,128 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf350
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;}
+{\info
+{\keywords cursorLocation=4826}}\paperw11900\paperh16840\margl1008\margr1008\margt1008\vieww15520\viewh18420\viewkind1\viewscale129
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\b\fs28 \cf0 Getting help for VHDL and ghdl\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\ql\qnatural\pardirnatural
+\cf0 ghdl\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+
+\b0 \cf0 The ghdl mcode distribution is a Just In Time (JIT) direct code generation. The mcode version is distributed for Windows use, while Linux distributions typically include the ghdl gcc front end version.  The mcode version uses the three normal phases of analysis (ghdl -a), elaboration (ghdl -e) and execution (ghdl -r). \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\qj\pardirnatural
+\cf0 An analyzed and elaborated VHDL design is linked to a ghdl run time library (grt) and executed until the design model is finished or for a fixed run time passed as a command line option.  ghdl is rich in command line arguments and arguments and the user should be familiar with the ghdl man page (\'91man ghdl\'92 or \'91info ghdl\'92) and the ghdl users guide, which can be found in:\
+	/usr/local/ghdl/doc/ghdl.html\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+\cf0 following a distribution installation in /usr/local.  The current online version of the ghdl user guide may also be found on the ghdl {\field{\*\fldinst{HYPERLINK "http://ghdl.free.fr"}}{\fldrslt website}}. A dated but serviceable cop of the gtkwave waveform viewer may be downloaded from {\field{\*\fldinst{HYPERLINK "http://eng-osx.sourceforge.net/GTKwave.html"}}{\fldrslt eng-osx}} {\field{\*\fldinst{HYPERLINK "http://sourceforge.net/projects/eng-osx/files/GTKwave/GTKwave-3.0.2-2006May16/GTKwave-3.0.2-2006May16.dmg/download"}}{\fldrslt here}}.  It requires X11 be installed.  Likewise a more up to date version of gtkwave can be built with {\field{\*\fldinst{HYPERLINK "http://www.macports.org/index.php"}}{\fldrslt Macports}}, once installed \'91sudo port install gtkwave\'92, it will be a large build.  Macports requires Xcode be loaded onto the build machine.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\qj\pardirnatural
+
+\b \cf0 VHDL\
+
+\b0 While not fully compliant ghdl is intended to implement IEEE Std-1076-1193, Very High Scale Integrated Circuit Hardware Design Language (VHDL).  Various books are available as well as obtaining the standard from the IEEE. \
+VHDL standardized in 1987 is a highly structured language derived from Ada-83 branching from Ada before object oriented programming constructs were introduced (and VHDL exhibits being an OOP for signal driven constructs).   There are various web sites with helpful documents and tutorials.\
+
+\b Building ghdl from source
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+\cf0 ghdl is an open source program written primarily in Ada licensed under the GPL open source license version 2.  Building requires a GNAT Ada tool suite.  Note that no source code need to be modified to build.  ghdl does not require the use of the Xcode build environment to build.  This distribution was built under Mac OS X 10.6 using MacAda 4.3 and made portable to Mac OS X 10.5 by the inclusion of manually relinking the build target to the 10.5 SDK post facto.  This allows ghdl to run under either OS version.  Note that no  ghdl source or other files were modified for building the executable or dependent files.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\qj\pardirnatural
+
+\b \cf0 Obtaining source
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+\cf0 Source for this executable can be obtained using subversion for this version by:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f1 \cf0 	svn -r 142 co svn://svn.gna.org/ghdl/trunk ghdl
+\f0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\ql\qnatural\pardirnatural
+
+\b \cf0 Building the executable
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\qj\pardirnatural
+\cf0 The directory ghdl will be both the build and the install directory. A build on a system with no working ghdl  to be retained should have the subversion checkout occur in /usr/local, requiring root (administrative) privilege, umask 022.\
+Before building the executable you should remove this preexisting file:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+\cf0 	/usr/local/ghdl/translate/ghdldrv/ortho_code-x86-flags.ads\
+\
+This file is used to organize stack boundaries, and Mac OS X requires a different boundary than the default build for Linux.  It is automatically re-created by the first make command.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\qj\pardirnatural
+\cf0 The first build target occurs in ghdl/translate/ghdldrv executing:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f1 \cf0 	make target=i686-darwin
+\f0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\qj\pardirnatural
+\cf0 This generates an executable named ghdl_mcode which requires linking to ghdl in the same directory to build VHDL libraries with a subsequent make invocation.  In /usr/local/ghdl/translate/ghdldrv:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+
+\f1 \cf0 	ln -s ghdl_mcode ghdl
+\f0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\qj\pardirnatural
+
+\b \cf0 Relinking the executable
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+\cf0 Before proceeding, should 10.5 compatibility be desired ghdl_mcode can be relinked using the 10.5 SDK libraries to allow execution on either 10.5 or 10.6 compatible Intel based Mac OS X based platforms:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 \
+
+\fs26 	set MACOSX_DEPLOYMENT_TARGET=10.5\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f1 \cf0 	gnatlink ghdl_mcode.ali -g memsegs_c.o chkstk.o i386.o linux.o \\ \
+	times.o grt-cbinding.o grt-cvpi.o -lm \\ \
+	-isysroot /Developer/SDKs/MacOSX10.5.sdk \\\
+	-mmacosx-version-min=10.5 \\ \
+	--no_compact_linkedit
+\f0\fs28 \
+\
+(Backslashes indicate line continuation).\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\ql\qnatural\pardirnatural
+
+\b \cf0 Building the VHDL libraries
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 Followed by building the VHDL libraries:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f1 \cf0 	make target=i686-darwin install.mcode
+\f0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sa154\qj\pardirnatural
+
+\b \cf0 Making the executable available
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj\pardirnatural
+\cf0 After making the executable a link should be made to the executable from someplace in your execution search path:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 \
+	ln
+\f1\fs26  -s /usr/local/ghdl/translate/ghdldrv/ghdl_mcode /usr/local/bin/ghdl
+\f0\fs28 \
+\
+The man page can be made available by linking:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f1 \cf0 	ln -s /usr/local/ghdl/doc/ghdl.1  /usr/local/man/man1/ghdl.1
+\f0 \
+\
+There are two VHDL library dependencies,  the libraries are in a fixed location and the build location is used to reference them.  Lastly the time stamps on the files are recorded by ghdl doing design file analysis.  You can\'92t touch the libraries without re-analyzing.  \
+\
+Avoiding re-analysis has prompted distribution of ghdl mcode effective files in an archive with extraction as root to insure the time stamps are restored.\
+}

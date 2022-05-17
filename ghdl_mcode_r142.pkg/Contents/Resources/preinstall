@@ -1,0 +1,37 @@
+#!/bin/sh -v
+# -v arg to sh would echo contents to installation log
+
+# Pre Install script for ghdl mcode
+
+# Remove any preexisting GHDL installation
+
+# Remove installation directory if it exists:
+
+if [ -e /usr/local/ghdl ]
+  then
+  /bin/rm -rf /usr/local/ghdl
+fi
+
+# Remove any left over copy of install archive if it exists:
+
+
+if [ -e /usr/local/ghdl.tar.bz2 ]
+  then
+  /bin/rm -f /usr/local/ghdl.tar.bz2
+fi
+
+# Remove link to executable if it exists:
+
+if [ -e /usr/local/bin/ghdl ]
+  then
+  /bin/rm -f /usr/local/bin/ghdl
+fi
+
+# Remove link to man page if it exists:
+
+if [ -e /usr/local/man/man1/ghdl.1 ]
+  then
+  /bin/rm -f /usr/local/man/man1/ghdl.1
+fi
+
+# Ready to Install fresh
