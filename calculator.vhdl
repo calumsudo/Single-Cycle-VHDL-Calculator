@@ -45,8 +45,27 @@ component display is
     );
 end component display;
 --carry ripple adder
+component carry is
+	port(	
+		A, B:	in std_logic_vector (7 downto 0); -- two 8-bit inputs
+		Cin:	in std_logic; --Carry in
+		Sum:	out std_logic_vector (7 downto 0); --the sum
+		Cout:	out std_logic --Carry out
+	);
+end component carry;
 --register file
---two comp
+component reg_file is
+    Port (  wd: in std_logic_vector (7 downto 0);
+            ws, rs1, rs2: in std_logic_vector (1 downto 0);
+            clk, we: in std_logic;
+            rd1, rd2: out std_logic_vector (7 downto 0)
+            );
+end component reg_file;
+--two comp -> Need to make two compliment file
 --begin architecture
+
+
+
+
 
 end behav;
