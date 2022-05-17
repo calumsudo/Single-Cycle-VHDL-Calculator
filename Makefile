@@ -5,6 +5,7 @@ RUN = -r
 
 calculator:
 	$(GHDL) $(COMP) ALU.vhdl
+	$(GHDL) $(COMP) addsub.vhdl
 	$(GHDL) $(COMP) calculator.vhdl
 	$(GHDL) $(COMP) carry.vhdl
 	$(GHDL) $(COMP) mux.vhdl
