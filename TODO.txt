@@ -1,0 +1,5 @@
+Calculator
+-9 input ports
+-optional reset
+-one input for clockcycle
+-
