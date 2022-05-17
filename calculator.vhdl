@@ -10,7 +10,6 @@ entity calculator is
         I: in std_logic_vector (7 downto 0); --8 input ports(buttons)
         clock: in std_logic; --clock is rising edge triggered
         reset: in std_logic; -- reset
-        O: out std_logic_vector(7 downto 0) -- output
     );
 end calculator;
 
@@ -61,10 +60,39 @@ component reg_file is
             rd1, rd2: out std_logic_vector (7 downto 0)
             );
 end component reg_file;
---two comp -> Need to make two compliment file
+
+--add signals
+signal we, display, Cin : std_logic;
+signal ws, rs1, rs2 : std_logic_vector(1 downto 0);
+signal wd, A, B, input, I : std_logic_vector(7 downto 0);
+
 --begin architecture
+begin
+
+--set up port maps
+regfile0 : reg_file port map(wd, ws, rs1, rs2, clk, we, rd1, rd2);
+operation : addsub port map(A, B, mode, Carry, S);
 
 
+rd1 <= I(1 downto 0);
+rd2 <= I(5 downto 4);
+
+display <= not (I(7) or I(6) or I(5));
+
+with display select rd1 <=
+    I(3 downto 2) when '0',
+    I(4 downto 3) when others;
+
+
+    sign_ext_imm(3 downto 0) <= I(3 downto 0);
+    with I(3) select sign_ext_imm(7 downto 4) <=
+    "1111" when '1',
+    "0000" when others;
+
+
+    we <= I(7) or I(6);
+
+    
 
 
 
