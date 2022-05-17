@@ -17,7 +17,23 @@ end calculator;
 architecture behav of calculator is
 --add other components to be used
 --ALU
+component ALU is 
+    port(
+        A,B:	in std_logic_vector(7 downto 0); -- two 8-bit inputs
+		OP:	in std_logic_vector(1 downto 0); --operation- 00:do nothing; 01:add; 10:subtract; 11:set on equal
+		O:	out std_logic_vector(7 downto 0); --output
+		EQ:	out std_logic --set on equal output
+    );
+end component ALU;
 --add/sub
+component add_sub is
+    port(	A:	in std_logic_vector (3 downto 0);
+            B:	in std_logic_vector (3 downto 0);
+            mode: in std_logic;
+            Carry: out std_logic;        
+            S:	out std_logic_vector(3 downto 0)
+    );
+end component add_sub;
 --display/print
 component display is
     port(
